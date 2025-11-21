@@ -1,0 +1,84 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ログイン - Re.Cook</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: rgb(238, 237, 234); /* Highly specific background color to match your image */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .login-wrapper {
+            text-align: center;
+            position: relative; /* Allows for vertical positioning of the whole wrapper */
+            top: -90px; /* Lift the entire login section up by 50px */
+        }
+
+        .logo-img {
+            width: 380px;
+            display: block;
+            margin: 0 auto -80px auto; /* Resetting logo margin as wrapper handles top lift */
+            object-fit: cover;
+            padding: 0;
+        }
+
+        .login-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 32px;
+            width: 380px;
+            box-shadow: 0px 6px 25px rgba(0,0,0,0.08);
+            position: relative;
+            top: -40px; /* This keeps the card overlapping the logo slightly */
+        }
+
+        .login-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .btn-login {
+            background: #000;
+            color: #fff;
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-wrapper">
+    <img src="../../pic/recook_logo.png" class="logo-img" alt="Re.Cook ロゴ">
+
+    <div class="login-card">
+        <div class="login-title">ログイン</div>
+
+        <form action="/Re_cook/LoginServlet" method="post">
+            <div class="mb-3">
+                <input type="text" class="form-control" name="username" placeholder="ユーザー名" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" name="password" placeholder="パスワード" required>
+            </div>
+            <button type="submit" class="btn btn-login">ログイン</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
