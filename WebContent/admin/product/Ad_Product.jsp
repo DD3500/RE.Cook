@@ -18,7 +18,6 @@
                 sb.append("<tr>");
                 sb.append("<td>").append(i + 1).append("</td>");
                 sb.append("<td>");
-                // Giả định click để chọn sản phẩm
                 sb.append("<a href=\"#\" class=\"text-dark\" onclick=\"alert('Đã chọn sản phẩm: ").append(products.get(i)).append("')\">");
                 sb.append(products.get(i));
                 sb.append("</a>");
@@ -26,15 +25,14 @@
                 sb.append("</tr>");
             }
         } else {
-            // Dữ liệu mẫu
-            sb.append("<tr><td>1</td><td>牛肉 (Thịt bò)</td></tr>");
-            sb.append("<tr><td>2</td><td>野菜 (Rau củ)</td></tr>");
-            sb.append("<tr><td>3</td><td>牛乳 (Sữa bò)</td></tr>");
-            sb.append("<tr><td>4</td><td>豚肉 (Thịt heo)</td></tr>");
-            sb.append("<tr><td>5</td><td>鶏肉 (Thịt gà)</td></tr>");
-            sb.append("<tr><td>6</td><td>魚介 (Hải sản)</td></tr>");
-            sb.append("<tr><td>7</td><td>果物 (Trái cây)</td></tr>");
-            sb.append("<tr><td>8</td><td>パン (Bánh mì)</td></tr>");
+            sb.append("<tr><td>1</td><td>牛肉 </td></tr>");
+            sb.append("<tr><td>2</td><td>野菜 </td></tr>");
+            sb.append("<tr><td>3</td><td>牛乳 </td></tr>");
+            sb.append("<tr><td>4</td><td>豚肉 </td></tr>");
+            sb.append("<tr><td>5</td><td>鶏肉 </td></tr>");
+            sb.append("<tr><td>6</td><td>魚介 </td></tr>");
+            sb.append("<tr><td>7</td><td>果物 </td></tr>");
+            sb.append("<tr><td>8</td><td>パン </td></tr>");
         }
 
         sb.append("</tbody></table></div>");
@@ -96,7 +94,6 @@
 %>
 
 <style>
-    /* CSS Tùy chỉnh cho Form trong Body 2 */
     .form-control-line {
         border: none;
         border-bottom: 1px solid black;
@@ -107,7 +104,7 @@
         transition: border-color 0.15s ease-in-out;
     }
     .form-control-line:focus {
-        border-bottom-color: #007bff; /* Màu xanh khi focus */
+        border-bottom-color: #007bff;
     }
     .btn-large-stacked {
         width: 150px;
@@ -115,12 +112,10 @@
         font-size: 1.1rem;
         font-weight: bold;
     }
-    /* Thêm padding-top cho cột nút để căn chỉnh với form */
     .pt-custom-align {
         padding-top: 3.5rem !important;
     }
 
-    /* Style cho bảng danh sách sản phẩm trong Body 1 */
     .product-list-table {
         font-size: 0.9rem;
         cursor: pointer;
