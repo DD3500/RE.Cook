@@ -1,11 +1,26 @@
 package bean;
 
-public class Genre {
-    private int genreId;
-    private String genreNameId; // Dựa trên tên cột `genre_name_id`
-    // Foreign Keys
-    private Integer menuItemId; // FK: cook_menu (Đây có thể là mối quan hệ 1-n, xem xét lại thiết kế DB)
+import java.io.Serializable;
 
-    // Constructors...
-    // Getters and Setters...
+public class Genre implements Serializable {
+
+    private int genreId;      // ジャンルID
+    private String genreName; // ジャンル名（和食、洋食など）
+
+    public Genre() {}
+
+    // ゲッターとセッター
+    public int getGenreId() {
+        return genreId;
+    }
+    public void setGenreId(int genreId) {
+        this.genreId = genreId;
+    }
+
+    public String getGenreName() {
+        return genreName;
+    }
+    public void setGenreName(String genreName) {
+        this.genreName = genreName;
+    }
 }
