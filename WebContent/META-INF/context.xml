@@ -5,7 +5,7 @@
 <Context reloadable="true">
 
 	<Resource
-		name="jdbc/JavaSD"
+		name="jdbc/Re.Cook"
 		auth="Container"
 		type="javax.sql.DataSource"
 		driverClassName="org.h2.Driver"

@@ -10,7 +10,7 @@
 
     <style>
         body {
-            background: rgb(238, 237, 234); /* Highly specific background color to match your image */
+            background: rgb(238, 237, 234);
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -22,14 +22,14 @@
 
         .login-wrapper {
             text-align: center;
-            position: relative; /* Allows for vertical positioning of the whole wrapper */
-            top: -90px; /* Lift the entire login section up by 50px */
+            position: relative;
+            top: -90px;
         }
 
         .logo-img {
             width: 380px;
             display: block;
-            margin: 0 auto -80px auto; /* Resetting logo margin as wrapper handles top lift */
+            margin: 0 auto -80px auto;
             object-fit: cover;
             padding: 0;
         }
@@ -41,7 +41,7 @@
             width: 380px;
             box-shadow: 0px 6px 25px rgba(0,0,0,0.08);
             position: relative;
-            top: -40px; /* This keeps the card overlapping the logo slightly */
+            top: -40px;
         }
 
         .login-title {
@@ -62,14 +62,36 @@
 <body>
 
 <div class="login-wrapper">
-    <img src="../../pic/recook_logo.png" class="logo-img" alt="Re.Cook ロゴ">
+    <img src="${pageContext.request.contextPath}/pic/recook_logo.png" class="logo-img" alt="Re.Cook ロゴ">
 
     <div class="login-card">
         <div class="login-title">ログイン</div>
 
-        <form action="/Re_cook/LoginServlet" method="post">
+        <%
+            // Lấy thông báo lỗi từ THAM SỐ TRUY VẤN (Query Parameter)
+            String errorParam = request.getParameter("error");
+            String errorMsg = null;
+
+            if ("invalid".equals(errorParam)) {
+                errorMsg = "IDもしくはパスワードが正しくありません";
+            } else if ("notnumber".equals(errorParam)) {
+                errorMsg = "ID 数字で入力してください";
+            } else if ("emptyfields".equals(errorParam)) {
+                errorMsg = "ユーザーIDとパスワードを入力してください";
+            }
+
+            if (errorMsg != null) {
+        %>
+            <div class="alert alert-danger mb-3" role="alert">
+                <%= errorMsg %>
+            </div>
+        <%
+            }
+        %>
+
+        <form action="${pageContext.request.contextPath}/Ad_LoginServlet" method="post">
             <div class="mb-3">
-                <input type="text" class="form-control" name="username" placeholder="ユーザー名" required>
+                <input type="text" class="form-control" name="username" placeholder="ユーザーID" required>
             </div>
             <div class="mb-3">
                 <input type="password" class="form-control" name="password" placeholder="パスワード" required>

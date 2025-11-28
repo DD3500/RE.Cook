@@ -15,7 +15,7 @@ public class DAO {
 			InitialContext ic = new InitialContext();
 			// context.xml で設定したデータベースへの接続情報について
 			// どの設定を呼び出すか記述しある
-			ds = (DataSource) ic.lookup("java:/comp/env/jdbc/Re.CookD");
+			ds = (DataSource) ic.lookup("java:/comp/env/jdbc/Re.Cook");
 		}
 		return ds.getConnection();
 	}
